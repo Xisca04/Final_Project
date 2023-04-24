@@ -8,6 +8,9 @@ TagManager:
   - Coin
   - Power Up
   - Gem
+  - Gem Finish
+  - Finish Level
+  - Timer
   layers:
   - Default
   - TransparentFX

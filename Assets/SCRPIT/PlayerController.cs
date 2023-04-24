@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
     public int Counter;
 
-    private void GetCollectables(Collider other) // Destroy the collectable
+    private void GetCoins(Collider other) // Destroy the collectable
     {
         Destroy(other.gameObject);
         Counter++;
@@ -136,11 +136,23 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"Has conseguido la gema. yeeeeeey");
     }
 
+    private void GetGemFinish(Collider other)
+    {
+        Destroy(other.gameObject);
+        Debug.Log($"Has pasado de nivel");
+    }
+
+    private void GetHourGlass(Collider other)
+    {
+        Destroy(other.gameObject);
+        Debug.Log($"Has conseguido más tiempo");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Contains("Coin"))
         {
-            GetCollectables(other);
+            GetCoins(other);
         }
         else if (other.gameObject.tag.Contains("Power Up"))
         {
@@ -150,9 +162,28 @@ public class PlayerController : MonoBehaviour
         {
             GetGem(other);
         }
+        else if (other.gameObject.tag.Contains("Finish Level"))
+        {
+            GetGemFinish(other);
+        }
+        else if (other.gameObject.tag.Contains("Timer"))
+        {
+            GetHourGlass(other);
+        }
     }
 
+    private IEnumerator counter()
+    {
+        yield return new WaitForSeconds(0.3f);
+        
+        for (int i = 300; i <= 0; i++)
+        {
+            _timer.text = $"{timer}";
+            timer++;
+        }
+    }
 
+    /*
     private IEnumerator counter()
     {
         while (true)
@@ -162,5 +193,5 @@ public class PlayerController : MonoBehaviour
             timer++;
         }
     }
-
+    */
 }
