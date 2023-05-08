@@ -26,7 +26,11 @@ public class PlayerController : MonoBehaviour
     public int timer = 0;
     public TextMeshProUGUI _timer;
 
-
+    private CorrutinaText uiText;
+    private void Awake()
+    {
+        uiText = FindObjectOfType<CorrutinaText>();
+    }
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -36,9 +40,30 @@ public class PlayerController : MonoBehaviour
         //  Time
 
         StartCoroutine(counter());
+        
+        presentationPanel.SetActive(true);
+        Time.timeScale = 0;
     }
+    
+    public GameObject presentationPanel;
+
+   /*
+    public void PrestationOff()
+    {
+        presentationPanel.SetActive(false);
+        
+    }
+   */
+
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            presentationPanel.SetActive(true);
+            presentationPanel.SetActive(false);
+            Time.timeScale = 1;
+        }
+
         Movment();
 
         if (Input.GetKeyDown(KeyCode.Mouse0)) //left botton down
@@ -182,6 +207,7 @@ public class PlayerController : MonoBehaviour
             timer++;
         }
     }
+
 
     /*
     private IEnumerator counter()
