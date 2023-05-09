@@ -5,6 +5,8 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private PlayerController _playerController;
+
     private float verticalInput; //movment
     private float moveSpeed;
     public float turnSpeed = 60f; //speed
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI livesText;
     public float timer = 0;
     public TextMeshProUGUI _timer;
+    public GameObject winPanel;
 
    
     private void Start()
@@ -32,6 +35,8 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();
         Cursor.lockState = CursorLockMode.Locked; //press [esc] to exit the mode  
+
+        winPanel.SetActive(false);
     }
     
 
@@ -141,14 +146,13 @@ public class PlayerController : MonoBehaviour
     private void GetGemFinish(Collider other)
     {
         Destroy(other.gameObject);
-        Debug.Log($"Has pasado de nivel");
+        winPanel.SetActive(true);
+        _playerController.enabled = false;
     }
 
     private void GetHourGlass(Collider other)
     {
         Destroy(other.gameObject);
-         
-        Debug.Log($"Has conseguido más tiempo");
     }
 
     private void OnTriggerEnter(Collider other)
