@@ -4,23 +4,19 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class CorrutinaText : MonoBehaviour
+public static class CorrutinaText
 {
     // Corrutina texto - máquina escribir
 
-    private string uiText = "Hola, qué tal?";
-    public TextMeshProUGUI _uiText;
+    
 
-    private void Start()
+    public static IEnumerator WritingText(string uiText, TextMeshProUGUI textBox)
     {
-        StartCoroutine(WritingText());
-    }
+        textBox.text = "";
 
-    private IEnumerator WritingText()
-    {
         foreach(char character in uiText)
         {
-            _uiText.text = _uiText.text + character;
+            textBox.text = textBox.text + character;
             yield return new WaitForSeconds(0.3f);
         }
     }

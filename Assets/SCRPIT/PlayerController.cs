@@ -23,46 +23,23 @@ public class PlayerController : MonoBehaviour
     public int lives = 3;
     public TextMeshProUGUI counterText;
     public TextMeshProUGUI livesText;
-    public int timer = 0;
+    public float timer = 0;
     public TextMeshProUGUI _timer;
 
-    private CorrutinaText uiText;
-    private void Awake()
-    {
-        uiText = FindObjectOfType<CorrutinaText>();
-    }
+   
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();
-        Cursor.lockState = CursorLockMode.Locked; //press [esc] to exit the mode
-
-        //  Time
-
-        StartCoroutine(counter());
-        
-        presentationPanel.SetActive(true);
-        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Locked; //press [esc] to exit the mode  
     }
     
-    public GameObject presentationPanel;
-
-   /*
-    public void PrestationOff()
-    {
-        presentationPanel.SetActive(false);
-        
-    }
-   */
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            presentationPanel.SetActive(true);
-            presentationPanel.SetActive(false);
-            Time.timeScale = 1;
-        }
+        //  Time
+        CountDown();
+
 
         Movment();
 
@@ -170,6 +147,7 @@ public class PlayerController : MonoBehaviour
     private void GetHourGlass(Collider other)
     {
         Destroy(other.gameObject);
+         
         Debug.Log($"Has conseguido más tiempo");
     }
 
@@ -194,11 +172,13 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.tag.Contains("Timer"))
         {
             GetHourGlass(other);
+            timer += 10;
         }
     }
 
-    private IEnumerator counter()
+    private void CountDown()
     {
+        /*
         yield return new WaitForSeconds(0.3f);
         
         for (int i = 300; i <= 0; i++)
@@ -206,18 +186,13 @@ public class PlayerController : MonoBehaviour
             _timer.text = $"{timer}";
             timer++;
         }
-    }
+        */
+        timer -= Time.deltaTime;
+        _timer.text = "" + timer.ToString("f1");
 
-
-    /*
-    private IEnumerator counter()
-    {
-        while (true)
+        if (timer <= 0)
         {
-            yield return new WaitForSeconds(1);
-            _timer.text = $"{timer}";
-            timer++;
+            timer = 0;
         }
     }
-    */
 }

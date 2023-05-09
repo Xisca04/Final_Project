@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
     {
         totalWaypoints = waypoints.Length;
         nextPoint = 1;
-        canAttack = true;
+        canAttack = false;
     }
 
     private void Update() // Se movera hacia el destino

@@ -15,6 +15,10 @@ public class Timer : MonoBehaviour
         timer -= Time.deltaTime;
         textTime.text = "" + timer.ToString("f1");
 
+        if(timer <= 0)
+        {
+            timer = 0;
+        }
     }
 
 }
