@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
 
-        
+        SaltoEscena();
     }
 
     private void OnCollisionEnter(Collision otherCollider) //collider ground
@@ -146,17 +146,13 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"Has conseguido la gema. yeeeeeey");
     }
 
-    private void GetGemFinish(Collider other)
+    public void GetGemFinish(Collider other)
     {
         Destroy(other.gameObject);
         winPanel.SetActive(true);
-       // _playerController.enabled = false;
+        // _playerController.enabled = false;
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            Debug.Log($"HOLA");
-            SceneManager.LoadScene("Level2");
-        }
+        SaltoEscena();
     }
 
     private void GetHourGlass(Collider other)
@@ -206,6 +202,15 @@ public class PlayerController : MonoBehaviour
         if (timer <= 0)
         {
             timer = 0;
+        }
+    }
+
+    public void SaltoEscena()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Debug.Log($"HOLA");
+            SceneManager.LoadScene("Level2");
         }
     }
 }

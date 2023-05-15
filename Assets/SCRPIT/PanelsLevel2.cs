@@ -28,7 +28,7 @@ public class PanelsLevel2 : MonoBehaviour
             panelPresenation.SetActive(false);
             panelWarning.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(KeyCode.V))
         {
             panelPresenation.SetActive(false);
             panelWarning.SetActive(false);
