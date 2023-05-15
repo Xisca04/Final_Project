@@ -7,17 +7,18 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     
-    public float timer;
+    public float timerTimer;
     public TextMeshProUGUI textTime;
+
 
     private void Update()
     {
-        timer -= Time.deltaTime;
-        textTime.text = "" + timer.ToString("f1");
+        timerTimer -= Time.deltaTime;
+        textTime.text = "" + timerTimer.ToString("f1");
 
-        if(timer <= 0)
+        if(timerTimer <= 0)
         {
-            timer = 0;
+            timerTimer = 0;
         }
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -57,6 +58,8 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
+        
     }
 
     private void OnCollisionEnter(Collision otherCollider) //collider ground
@@ -147,7 +150,13 @@ public class PlayerController : MonoBehaviour
     {
         Destroy(other.gameObject);
         winPanel.SetActive(true);
-        _playerController.enabled = false;
+       // _playerController.enabled = false;
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Debug.Log($"HOLA");
+            SceneManager.LoadScene("Level2");
+        }
     }
 
     private void GetHourGlass(Collider other)
