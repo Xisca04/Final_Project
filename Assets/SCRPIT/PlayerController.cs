@@ -53,6 +53,10 @@ public class PlayerController : MonoBehaviour
         {
             Attack();
         }
+        else
+        {
+            swordCollider.enabled = false;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnTheGround ) //salto con el espacio y no podré saltar si es gameover(MUERTO)
         {
@@ -120,6 +124,8 @@ public class PlayerController : MonoBehaviour
     {
         _animator.SetInteger("Attack_type", Random.Range(1, 3));
         _animator.SetTrigger("Attack");
+
+        swordCollider.enabled = true;
     }
 
     public int Counter;
@@ -148,9 +154,9 @@ public class PlayerController : MonoBehaviour
 
     public void GetGemFinish(Collider other)
     {
+       // if (2100 monedas pasas)
         Destroy(other.gameObject);
         winPanel.SetActive(true);
-        // _playerController.enabled = false;
 
         SaltoEscena();
     }
@@ -209,7 +215,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            Debug.Log($"HOLA");
             SceneManager.LoadScene("Level2");
         }
     }

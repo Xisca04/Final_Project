@@ -5,9 +5,12 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    //SLIME ENEMY
+
     [SerializeField] private Transform player;
 
     private NavMeshAgent _agent;
+    private Animator _animator;
 
     private float visionRange = 3.5f;
     private float attackRange = 2f;
@@ -33,6 +36,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -67,6 +71,8 @@ public class Enemy : MonoBehaviour
 
     private void Patrol()
     {
+        
+
         if (Vector3.Distance(transform.position, waypoints[nextPoint].position) < 2.5f)
         {
             nextPoint++;
@@ -74,6 +80,7 @@ public class Enemy : MonoBehaviour
             if (nextPoint == totalWaypoints)
             {
                 nextPoint = 0;
+
             }
 
             transform.LookAt(waypoints[nextPoint].position);
@@ -91,6 +98,7 @@ public class Enemy : MonoBehaviour
     private void Attack()
     {
         _agent.SetDestination(transform.position);
+        _animator.SetTrigger("Attack_S");
 
         if (canAttack)
         {
