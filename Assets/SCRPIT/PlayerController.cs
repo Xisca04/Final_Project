@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private PlayerController _playerController;
-
     private float verticalInput; //movment
     private float moveSpeed;
     public float turnSpeed = 60f; //speed
@@ -18,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public float mouseSensitivity;
 
-    private bool isOnTheGround;
+    [SerializeField] private bool isOnTheGround;
     private Rigidbody _rigidbody;
     private Animator _animator;
 
@@ -30,7 +28,9 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI _timer;
     public GameObject winPanel;
 
-   
+    [SerializeField] private BoxCollider swordCollider;
+
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();

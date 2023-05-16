@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private Transform player;
 
-    private UnityEngine.AI.NavMeshAgent _agent;
+    private NavMeshAgent _agent;
 
     private float visionRange = 3.5f;
     private float attackRange = 2f;
 
-    private bool playerInVisionRange;
-    private bool playerInAttackRange;
+    [SerializeField] private bool playerInVisionRange;
+    [SerializeField] private bool playerInAttackRange;
 
     [SerializeField] private LayerMask playerLayer;
 
@@ -20,7 +21,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private Transform[] waypoints; // Las localizaciones donde hara un recorrido de patrulla
     private int totalWaypoints;
-    private int nextPoint;
+    [SerializeField] private int nextPoint;
 
     // ATAQUE - Variables
 
@@ -31,7 +32,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        _agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        _agent = GetComponent<NavMeshAgent>();
     }
 
     private void Start()

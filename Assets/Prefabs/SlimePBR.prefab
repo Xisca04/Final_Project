@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 95161444847813696}
   - component: {fileID: 6581800638265994364}
   - component: {fileID: 6568069912567218762}
+  - component: {fileID: 402068620}
   m_Layer: 0
   m_Name: SlimePBR
   m_TagString: Untagged
@@ -452,11 +453,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  playerInVisionRange: 0
+  playerInAttackRange: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  waypoints: []
-  spawnPoint: {fileID: 0}
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  nextPoint: 0
 --- !u!195 &6568069912567218762
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -467,7 +472,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -479,6 +484,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!135 &402068620
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919012471076396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5314832
+  m_Center: {x: 0, y: 0.39429188, z: 0}
 --- !u!1 &1989916952965676
 GameObject:
   m_ObjectHideFlags: 0

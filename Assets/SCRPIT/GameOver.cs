@@ -29,7 +29,6 @@ public class GameOver : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             gameOverPanel.SetActive(false);
-            Debug.Log($"mal");
         }
     }
 
