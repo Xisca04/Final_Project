@@ -18,11 +18,12 @@ public class GameOver : MonoBehaviour
 
     private void Update()
     {
-        if(_playerController.timer == 0)
+        if(_playerController.timer == 0) 
         {
             GameOverLevels();
         }
     }
+
     public void GameOverLevels()
     {
         gameOverPanel.SetActive(true);
@@ -31,6 +32,4 @@ public class GameOver : MonoBehaviour
             gameOverPanel.SetActive(false);
         }
     }
-
-    
 }
