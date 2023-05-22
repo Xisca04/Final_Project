@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     public GameObject winPanel;
     //public GameObject winPanelLevel2;
     public int Counter;
+    private AudioSource _audioSource;
+    public AudioClip[] collectables;
 
     [SerializeField] private BoxCollider swordCollider;
 
@@ -38,7 +40,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();
         Cursor.lockState = CursorLockMode.Locked; //press [esc] to exit the mode  
-
+        _audioSource = GetComponent<AudioSource>();
         winPanel.SetActive(false);
     }
     
@@ -136,6 +138,7 @@ public class PlayerController : MonoBehaviour
         Destroy(other.gameObject);
         Counter++;
         counterText.text = $"Coins: {Counter}";
+        _audioSource.PlayOneShot(collectables[1]);
 
     }
 
@@ -145,6 +148,7 @@ public class PlayerController : MonoBehaviour
         lives++;
         livesText.text = $"Lives: {lives}";
         hasPowerupLife = true;
+        _audioSource.PlayOneShot(collectables[2]);
     }
 
     public void GetGem(Collider other)
@@ -161,6 +165,7 @@ public class PlayerController : MonoBehaviour
             winPanel.SetActive(true);
             SaltoEscena();
             timer = 0;
+            _audioSource.PlayOneShot(collectables[3]);
         }
 
         if(Counter >= 3)
@@ -168,12 +173,14 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             winPanel.SetActive(true);
             timer = 0;
+            _audioSource.PlayOneShot(collectables[3]);
         }
     }
 
     private void GetHourGlass(Collider other)
     {
         Destroy(other.gameObject);
+        _audioSource.PlayOneShot(collectables[0]);
     }
 
     private void OnTriggerEnter(Collider other)
