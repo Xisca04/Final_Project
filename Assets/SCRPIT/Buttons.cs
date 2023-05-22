@@ -36,6 +36,10 @@ public class Buttons : MonoBehaviour
         optionsPanel.SetActive(true);
     }
 
+    public void Prueba()
+    {
+        Debug.Log($"¿Funcionas?");
+    }
    
 
 
