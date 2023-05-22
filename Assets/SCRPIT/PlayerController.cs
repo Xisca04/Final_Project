@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public float timer = 0;
     public TextMeshProUGUI _timer;
     public GameObject winPanel;
+    //public GameObject winPanelLevel2;
+    public int Counter;
 
     [SerializeField] private BoxCollider swordCollider;
 
@@ -128,7 +130,6 @@ public class PlayerController : MonoBehaviour
         swordCollider.enabled = true;
     }
 
-    public int Counter;
 
     private void GetCoins(Collider other) // Destroy the collectable
     {
@@ -146,7 +147,7 @@ public class PlayerController : MonoBehaviour
         hasPowerupLife = true;
     }
 
-    private void GetGem(Collider other)
+    public void GetGem(Collider other)
     {
         Destroy(other.gameObject);
         Debug.Log($"Has conseguido la gema. yeeeeeey");
@@ -154,11 +155,20 @@ public class PlayerController : MonoBehaviour
 
     public void GetGemFinish(Collider other)
     {
-       // if (2100 monedas pasas)
-        Destroy(other.gameObject);
-        winPanel.SetActive(true);
+        if (Counter >= 10)
+        {
+            Destroy(other.gameObject);
+            winPanel.SetActive(true);
+            SaltoEscena();
+            timer = 0;
+        }
 
-        SaltoEscena();
+        if(Counter >= 3)
+        {
+            Destroy(other.gameObject);
+            winPanel.SetActive(true);
+            timer = 0;
+        }
     }
 
     private void GetHourGlass(Collider other)
@@ -193,15 +203,6 @@ public class PlayerController : MonoBehaviour
 
     private void CountDown()
     {
-        /*
-        yield return new WaitForSeconds(0.3f);
-        
-        for (int i = 300; i <= 0; i++)
-        {
-            _timer.text = $"{timer}";
-            timer++;
-        }
-        */
         timer -= Time.deltaTime;
         _timer.text = "" + timer.ToString("f1");
 
@@ -216,6 +217,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             SceneManager.LoadScene("Level2");
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            SceneManager.LoadScene("Credits");
         }
     }
 }
