@@ -2,18 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Buttons : MonoBehaviour
 {
+
+    public TextMeshProUGUI usernametext;
     private void Start()
     {
         instructionsPanel.SetActive(false);
         optionsPanel.SetActive(false);
+        usernamePanel.SetActive(false);
     }
     
-    // Cambio escena al 1r nivel
+    // Cambio escena al 1r nivel + username
+
     public void GoToScene(int sceneIDX)
     {
+        DataPersistence.sharedInstance.username = usernametext.text;
         SceneManager.LoadScene(sceneIDX);
     }
 
@@ -40,7 +46,12 @@ public class Buttons : MonoBehaviour
     {
         Debug.Log($"¿Funcionas?");
     }
-   
+
+    public GameObject usernamePanel;
+    public void UsernamePanel()
+    {
+        usernamePanel.SetActive(true);
+    }
 
 
 

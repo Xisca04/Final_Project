@@ -77,6 +77,8 @@ public class PlayerController : MonoBehaviour
             isOnTheGround = true;
         }
     }
+
+    
    
     private void Movment()
     {
@@ -151,12 +153,6 @@ public class PlayerController : MonoBehaviour
         _audioSource.PlayOneShot(collectables[2]);
     }
 
-    public void GetGem(Collider other)
-    {
-        Destroy(other.gameObject);
-        Debug.Log($"Has conseguido la gema. yeeeeeey");
-    }
-
     public void GetGemFinish(Collider other)
     {
         if (Counter >= 10)
@@ -168,7 +164,7 @@ public class PlayerController : MonoBehaviour
             _audioSource.PlayOneShot(collectables[3]);
         }
 
-        if(Counter >= 3)
+        if(Counter >= 12)
         {
             Destroy(other.gameObject);
             winPanel.SetActive(true);
@@ -185,26 +181,25 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Contains("Coin"))
+        if (other.gameObject.tag.Equals("Coin"))
         {
             GetCoins(other);
         }
-        else if (other.gameObject.tag.Contains("Power Up"))
+        else if (other.gameObject.tag.Equals("Power Up"))
         {
             GetPowerUp(other);
         }
-        else if (other.gameObject.tag.Contains("Gem"))
-        {
-            GetGem(other);
-        }
-        else if (other.gameObject.tag.Contains("Finish Level"))
+        else if (other.gameObject.tag.Equals("Finish Level"))
         {
             GetGemFinish(other);
         }
-        else if (other.gameObject.tag.Contains("Timer"))
+        else if (other.gameObject.tag.Equals("Timer"))
         {
             GetHourGlass(other);
             timer += 10;
+        } else if (other.gameObject.tag.Equals("Enemy"))
+        {
+            //TODO: comprobar que la espada destruye al enemigo
         }
     }
 

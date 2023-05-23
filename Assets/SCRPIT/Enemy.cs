@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     //SLIME ENEMY
 
     [SerializeField] private Transform player;
+    [SerializeField] private PlayerController _playerController;
 
     private NavMeshAgent _agent;
     private Animator _animator;
@@ -41,6 +42,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        _playerController = FindObjectOfType<PlayerController>();
         totalWaypoints = waypoints.Length;
         nextPoint = 1;
         canAttack = false;
@@ -102,6 +104,7 @@ public class Enemy : MonoBehaviour
 
         if (canAttack)
         {
+            _playerController.lives--;
             canAttack = false;
             StartCoroutine(AttackCoolDown());
         }
