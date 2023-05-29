@@ -19,12 +19,9 @@ public class PresentationPanel : MonoBehaviour
         StartCoroutine(CorrutinaText.WritingText(_tutorialMessage, text));
     }
 
-    private void Update()
+    public void PresentationPanelLevelOff()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            panelPresenation.SetActive(false);
-            _playerController.enabled = true;
-        }
+        panelPresenation.SetActive(false);
+        _playerController.enabled = true;
     }
 }

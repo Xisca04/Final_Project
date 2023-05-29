@@ -20,21 +20,17 @@ public class PanelsLevel2 : MonoBehaviour
         _playerController.enabled = false;
         StartCoroutine(CorrutinaText.WritingText(_tutorialMessage, text));
     }
-
-    private void Update()
+    
+    public void PresentationButton()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            panelPresenation.SetActive(false);
-            panelWarning.SetActive(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.V))
-        {
-            panelPresenation.SetActive(false);
-            panelWarning.SetActive(false);
-            _playerController.enabled = true;
-        }
+        panelPresenation.SetActive(false);
+        panelWarning.SetActive(true);
+    }
 
-       
+    public void WarningButton()
+    {
+        panelPresenation.SetActive(false);
+        panelWarning.SetActive(false);
+        _playerController.enabled = true;
     }
 }

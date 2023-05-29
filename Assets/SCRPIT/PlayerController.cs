@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed;
     public float turnSpeed = 60f; //speed
     public float walkSpeed = 8f;
-    public float runSpeed= 20f;
+    public float runSpeed= 10f;
 
     public float jumpForce = 10f;
 
@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
     private void Idle()
     {
         _animator.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
-        TWOstaminaMaria.instance.RegenStamina(5);
+        TWOstaminaMaria.instance.RegenStamina(15);
         dirtParticle.Stop();
     }
 
@@ -120,14 +120,14 @@ public class PlayerController : MonoBehaviour
     {
         moveSpeed = walkSpeed;
         _animator.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
-        TWOstaminaMaria.instance.RegenStamina(5);
+        TWOstaminaMaria.instance.RegenStamina(15);
         dirtParticle.Play();
     }
     private void Run()
     {
         moveSpeed = runSpeed;
         _animator.SetFloat("Speed", 1f, 0.1f,Time.deltaTime); //adding the smooth
-        TWOstaminaMaria.instance.UseStamina(15);
+        TWOstaminaMaria.instance.UseStamina(40);
         dirtParticle.Play();
     }
     private void Jump()
