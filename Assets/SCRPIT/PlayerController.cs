@@ -39,9 +39,10 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();
-        Cursor.lockState = CursorLockMode.Locked; //press [esc] to exit the mode  
+        // Cursor.lockState = CursorLockMode.Locked; //press [esc] to exit the mode  
         _audioSource = GetComponent<AudioSource>();
         winPanel.SetActive(false);
+        
     }
     
 
