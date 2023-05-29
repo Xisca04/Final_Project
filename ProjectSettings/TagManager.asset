@@ -11,6 +11,8 @@ TagManager:
   - Gem Finish
   - Finish Level
   - Timer
+  - Turtle Shell
+  - Slime
   layers:
   - Default
   - TransparentFX

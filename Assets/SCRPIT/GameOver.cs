@@ -27,6 +27,7 @@ public class GameOver : MonoBehaviour
     public void GameOverLevels()
     {
         gameOverPanel.SetActive(true);
+        _playerController.dirtParticle.Stop();
         if (Input.GetKeyDown(KeyCode.H))
         {
             gameOverPanel.SetActive(false);

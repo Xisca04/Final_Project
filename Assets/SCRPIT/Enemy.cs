@@ -110,6 +110,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision otherCollider) //collider ground
+    {
+        if (otherCollider.gameObject.Equals("Slime"))
+        {
+            _playerController.lives--;
+        }
+    }
+
     private IEnumerator AttackCoolDown()
     {
         yield return new WaitForSeconds(timeBetweenAttacks);

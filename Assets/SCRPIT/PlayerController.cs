@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip[] collectables;
 
     [SerializeField] private BoxCollider swordCollider;
+    public ParticleSystem dirtParticle;
 
 
     private void Start()
@@ -42,7 +43,6 @@ public class PlayerController : MonoBehaviour
         // Cursor.lockState = CursorLockMode.Locked; //press [esc] to exit the mode  
         _audioSource = GetComponent<AudioSource>();
         winPanel.SetActive(false);
-        
     }
     
 
@@ -73,14 +73,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision otherCollider) //collider ground
     {
-        if (otherCollider.gameObject.CompareTag("Ground"))
+        if (otherCollider.gameObject.Equals("Ground"))
         {
             isOnTheGround = true;
         }
+
+  
     }
 
-    
-   
+
     private void Movment()
     {
        
@@ -91,47 +92,57 @@ public class PlayerController : MonoBehaviour
                                                  
         transform.Rotate(Vector3.up, mouseSensitivity * mouseX * Time.deltaTime);
 
-        if (!(verticalInput != 0))
+        if (verticalInput != 0)
+        {
+            if (Input.GetKey(KeyCode.LeftShift) && TWOstaminaMaria.instance.hasStamina)
+            {
+                Run();
+            }
+            else
+            {
+                Walk();
+            }
+        }
+        else
         {
             Idle();
-        }
-        else if (!Input.GetKey(KeyCode.LeftShift)) 
-        {
-            Walk();
-        }
-        else 
-        {
-            Run();
         }
     }
 
     private void Idle()
     {
         _animator.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
+        TWOstaminaMaria.instance.RegenStamina(5);
+        dirtParticle.Stop();
     }
 
     private void Walk()
     {
         moveSpeed = walkSpeed;
         _animator.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
+        TWOstaminaMaria.instance.RegenStamina(5);
+        dirtParticle.Play();
     }
     private void Run()
     {
         moveSpeed = runSpeed;
         _animator.SetFloat("Speed", 1f, 0.1f,Time.deltaTime); //adding the smooth
+        TWOstaminaMaria.instance.UseStamina(15);
+        dirtParticle.Play();
     }
     private void Jump()
     {
         isOnTheGround = false;
         _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-       
+        dirtParticle.Stop();
+
     }
 
     private void Attack()
     {
         _animator.SetInteger("Attack_type", Random.Range(1, 3));
         _animator.SetTrigger("Attack");
-
+        dirtParticle.Stop();
         swordCollider.enabled = true;
     }
 
@@ -161,7 +172,7 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             winPanel.SetActive(true);
             SaltoEscena();
-            timer = 0;
+            timer = 60;
             _audioSource.PlayOneShot(collectables[3]);
         }
 
@@ -169,7 +180,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             winPanel.SetActive(true);
-            timer = 0;
+            timer = 120;
             _audioSource.PlayOneShot(collectables[3]);
         }
     }
