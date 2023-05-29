@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     public int Counter;
     private AudioSource _audioSource;
     public AudioClip[] collectables;
+    private AudioSource _audioAttack;
+    public AudioClip[] attackSounds;
+    public AudioClip errorGem;
 
     [SerializeField] private BoxCollider swordCollider;
     public ParticleSystem dirtParticle;
@@ -144,10 +147,20 @@ public class PlayerController : MonoBehaviour
         _animator.SetTrigger("Attack");
         dirtParticle.Stop();
         swordCollider.enabled = true;
+        ChooseRandomSFX(attackSounds);
+    }
+
+  
+
+
+    private void ChooseRandomSFX(AudioClip[] sounds)
+    {
+      int randomIdx = Random.Range(0, sounds.Length);
+      _audioSource.PlayOneShot(sounds[randomIdx], 1);
     }
 
 
-    private void GetCoins(Collider other) // Destroy the collectable
+private void GetCoins(Collider other) // Destroy the collectable
     {
         Destroy(other.gameObject);
         Counter++;
@@ -175,6 +188,10 @@ public class PlayerController : MonoBehaviour
             timer = 60;
             _audioSource.PlayOneShot(collectables[3]);
         }
+        else
+        {
+            _audioSource.PlayOneShot(errorGem);
+        }
 
         if(Counter >= 12)
         {
@@ -182,6 +199,10 @@ public class PlayerController : MonoBehaviour
             winPanel.SetActive(true);
             timer = 120;
             _audioSource.PlayOneShot(collectables[3]);
+        }
+        else
+        {
+            _audioSource.PlayOneShot(errorGem);
         }
     }
 
