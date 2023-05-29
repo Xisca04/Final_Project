@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEditor;
 
 public class Buttons : MonoBehaviour
 {
@@ -42,9 +43,13 @@ public class Buttons : MonoBehaviour
         optionsPanel.SetActive(true);
     }
 
-    public void Prueba()
+    public void QuitGame()
     {
-        Debug.Log($"¿Funcionas?");
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+            Application.Quit();
+#endif
     }
 
     public GameObject usernamePanel;
