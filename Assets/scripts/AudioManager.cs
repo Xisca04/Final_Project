@@ -13,8 +13,8 @@ public class AudioManager : MonoBehaviour
     public Slider backgroundSlider, soundEffectsSlider;
     private float backgroundFloat, soundEffectsFloat;
 
-    /*public AudioSource backgroundAudio;*/
-    /*public AudioSource[] soundEffectsAudio;*/
+    public AudioSource backgroundAudio;
+    public AudioSource[] soundEffectsAudio;
 
     void Start()
     {
@@ -49,8 +49,8 @@ public class AudioManager : MonoBehaviour
     {
         SaveSoundSettings();
     }
-
-    /*public void UpdateSound()
+    /*
+    public void UpdateSound()
     {
         backgroundAudio.volume = backgroundSlider.value;
 

@@ -108,6 +108,9 @@ public class Enemy : MonoBehaviour
         _agent.SetDestination(transform.position);
         _animator.SetTrigger("Attack_S");
 
+        _animator.SetInteger("Attack_type_TS", Random.Range(1, 3));
+        _animator.SetTrigger("Attack_TS");
+
         if (canAttack)
         {
             canAttack = false;
