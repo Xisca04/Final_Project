@@ -7654,9 +7654,39 @@ PrefabInstance:
       objectReference: {fileID: 1955143262}
     - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
         type: 3}
+      propertyPath: slimeDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b21ef916f6943c439b71a7c74568878, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: slimeAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: turtleDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: turtleAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: _audioSourceSlime
+      value: 
+      objectReference: {fileID: 246936036}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
       propertyPath: _playerController
       value: 
       objectReference: {fileID: 1147605816}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: _audioSourceTurtle
+      value: 
+      objectReference: {fileID: 1852304697}
     - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
         type: 3}
       propertyPath: waypoints.Array.size
@@ -8675,6 +8705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 246936035}
+  - component: {fileID: 246936036}
   m_Layer: 0
   m_Name: Slimes
   m_TagString: Untagged
@@ -8701,6 +8732,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &246936036
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246936034}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &250816220
 GameObject:
   m_ObjectHideFlags: 0
@@ -9876,9 +10003,39 @@ PrefabInstance:
       objectReference: {fileID: 1955143262}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
+      propertyPath: slimeDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b21ef916f6943c439b71a7c74568878, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: slimeAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: turtleDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: turtleAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: _audioSourceSlime
+      value: 
+      objectReference: {fileID: 246936036}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
       propertyPath: _playerController
       value: 
       objectReference: {fileID: 1147605816}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: _audioSourceTurtle
+      value: 
+      objectReference: {fileID: 1852304697}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
       propertyPath: playerLayer.m_Bits
@@ -28391,9 +28548,39 @@ PrefabInstance:
       objectReference: {fileID: 1955143262}
     - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
         type: 3}
+      propertyPath: slimeDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b21ef916f6943c439b71a7c74568878, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: slimeAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: turtleDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: turtleAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: _audioSourceSlime
+      value: 
+      objectReference: {fileID: 246936036}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
       propertyPath: _playerController
       value: 
       objectReference: {fileID: 1147605816}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: _audioSourceTurtle
+      value: 
+      objectReference: {fileID: 1852304697}
     - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
         type: 3}
       propertyPath: waypoints.Array.size
@@ -37712,9 +37899,39 @@ PrefabInstance:
       objectReference: {fileID: 1955143262}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
+      propertyPath: slimeDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b21ef916f6943c439b71a7c74568878, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: slimeAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: turtleDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: turtleAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: _audioSourceSlime
+      value: 
+      objectReference: {fileID: 246936036}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
       propertyPath: _playerController
       value: 
       objectReference: {fileID: 1147605816}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: _audioSourceTurtle
+      value: 
+      objectReference: {fileID: 1852304697}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
       propertyPath: waypoints.Array.size
@@ -44863,9 +45080,39 @@ PrefabInstance:
       objectReference: {fileID: 1955143262}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
+      propertyPath: slimeDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b21ef916f6943c439b71a7c74568878, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: slimeAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: turtleDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: turtleAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: _audioSourceSlime
+      value: 
+      objectReference: {fileID: 246936036}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
       propertyPath: _playerController
       value: 
       objectReference: {fileID: 1147605816}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: _audioSourceTurtle
+      value: 
+      objectReference: {fileID: 1852304697}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -51512,9 +51759,39 @@ PrefabInstance:
       objectReference: {fileID: 1955143262}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
+      propertyPath: slimeDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b21ef916f6943c439b71a7c74568878, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: slimeAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: turtleDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: turtleAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: _audioSourceSlime
+      value: 
+      objectReference: {fileID: 246936036}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
       propertyPath: _playerController
       value: 
       objectReference: {fileID: 1147605816}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: _audioSourceTurtle
+      value: 
+      objectReference: {fileID: 1852304697}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -66823,6 +67100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1852304696}
+  - component: {fileID: 1852304697}
   m_Layer: 0
   m_Name: Turtle
   m_TagString: Untagged
@@ -66848,6 +67126,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1852304697
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852304695}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1852961655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67092,9 +67466,39 @@ PrefabInstance:
       objectReference: {fileID: 1955143262}
     - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
         type: 3}
+      propertyPath: slimeDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b21ef916f6943c439b71a7c74568878, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: slimeAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: turtleDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: turtleAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: _audioSourceSlime
+      value: 
+      objectReference: {fileID: 246936036}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
       propertyPath: _playerController
       value: 
       objectReference: {fileID: 1147605816}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: _audioSourceTurtle
+      value: 
+      objectReference: {fileID: 1852304697}
     - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
         type: 3}
       propertyPath: waypoints.Array.size

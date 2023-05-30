@@ -40,6 +40,15 @@ public class Enemy : MonoBehaviour
     private float upAttackForce = 15f;
     private float forwardAttackForce = 18f;
 
+    // Audio
+
+    public AudioSource _audioSourceSlime;
+    public AudioSource _audioSourceTurtle;
+    public AudioClip slimeAttack; 
+    public AudioClip turtleAttack;
+    public AudioClip slimeDeath;
+    public AudioClip turtleDeath;
+
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -52,6 +61,8 @@ public class Enemy : MonoBehaviour
         totalWaypoints = waypoints.Length;
         nextPoint = 1;
         canAttack = false;
+        _audioSourceSlime = GetComponent<AudioSource>();
+        _audioSourceTurtle = GetComponent<AudioSource>();
     }
 
     private void Update() // Se movera hacia el destino
@@ -107,9 +118,11 @@ public class Enemy : MonoBehaviour
     {
         _agent.SetDestination(transform.position);
         _animator.SetTrigger("Attack_S");
+        _audioSourceSlime.PlayOneShot(slimeAttack);
 
         _animator.SetInteger("Attack_type_TS", Random.Range(1, 3));
         _animator.SetTrigger("Attack_TS");
+        _audioSourceTurtle.PlayOneShot(turtleAttack);
 
         if (canAttack)
         {
@@ -124,6 +137,7 @@ public class Enemy : MonoBehaviour
         if (slimeLives <= 0)
         {
            _animator.SetBool("isGameOver_S",true);
+            _audioSourceSlime.PlayOneShot(slimeDeath);
             _agent.SetDestination(transform.position); //se queda en el sitio
             Destroy(gameObject, 3);
         }
@@ -136,6 +150,7 @@ public class Enemy : MonoBehaviour
         if (turtleLives <= 0)
         {
             _animator.SetBool("isGameOver_TS", true);
+            _audioSourceTurtle.PlayOneShot(turtleDeath);
             _agent.SetDestination(transform.position); //se queda en el sitio
             Destroy(gameObject, 3);
         }

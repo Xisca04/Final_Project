@@ -14,9 +14,9 @@ public class AudioSttings : MonoBehaviour
 
     private void Awake()
     {
-        ContinueSettings();
+        //ContinueSettings();
     }
-
+    /*
     private void ContinueSettings()
     {
         backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
@@ -29,4 +29,5 @@ public class AudioSttings : MonoBehaviour
             soundEffectsAudio[i].volume = soundEffectsFloat;
         }
     }
+    */
 }
