@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    private float verticalInput; //movment
+    //movment
+    private float verticalInput; 
     private float moveSpeed;
-    public float turnSpeed = 60f; //speed
+
+    //speed
     public float walkSpeed = 8f;
     public float runSpeed= 10f;
 
@@ -20,15 +22,19 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;
     private Animator _animator;
 
+    //powerups
     public bool hasPowerupLife;
     public int lives = 3;
+    public float timer = 0;
+
+    //UI
     public TextMeshProUGUI counterText;
     public TextMeshProUGUI livesText;
-    public float timer = 0;
     public TextMeshProUGUI _timer;
     public GameObject winPanel;
-    //public GameObject winPanelLevel2;
     public int Counter;
+   
+    //Audio
     private AudioSource _audioSource;
     public AudioClip[] collectables;
     private AudioSource _audioAttack;
@@ -46,6 +52,7 @@ public class PlayerController : MonoBehaviour
         // Cursor.lockState = CursorLockMode.Locked; //press [esc] to exit the mode  
         _audioSource = GetComponent<AudioSource>();
         winPanel.SetActive(false);
+        swordCollider.enabled = false;
     }
     
 
@@ -61,10 +68,7 @@ public class PlayerController : MonoBehaviour
         {
             Attack();
         }
-        else
-        {
-            swordCollider.enabled = false;
-        }
+       
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnTheGround ) //salto con el espacio y no podré saltar si es gameover(MUERTO)
         {
@@ -147,10 +151,25 @@ public class PlayerController : MonoBehaviour
         _animator.SetTrigger("Attack");
         dirtParticle.Stop();
         swordCollider.enabled = true;
+        StartCoroutine("TimeSwordCollider");
         ChooseRandomSFX(attackSounds);
     }
+    private IEnumerator TimeSwordCollider()
+    {
+        yield return new WaitForSeconds(1);
+        swordCollider.enabled = false;
+    }
 
-  
+    public void TakeDamage()
+    {
+        lives--;
+    
+        if (lives <= 0)
+        {
+            _animator.SetBool("Die",true);
+            //asigasr panel game over
+        }
+    }
 
 
     private void ChooseRandomSFX(AudioClip[] sounds)

@@ -13,6 +13,12 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent _agent;
     private Animator _animator;
 
+    //Live n Damage
+    private int slimeLives = 1;
+    private float slimeDamge = 1f;
+    private int turtleLives = 2;
+    private float turtleDamage = 2f;
+
     private float visionRange = 3.5f;
     private float attackRange = 2f;
 
@@ -104,17 +110,39 @@ public class Enemy : MonoBehaviour
 
         if (canAttack)
         {
-            _playerController.lives--;
             canAttack = false;
             StartCoroutine(AttackCoolDown());
+        }
+    }
+    public void TakeDamage()
+    {
+        slimeLives--;
+   
+        if (slimeLives <= 0)
+        {
+           _animator.SetBool("isGameOver_S",true);
+            _agent.SetDestination(transform.position); //se queda en el sitio
+            Destroy(gameObject, 3);
+        }
+    }
+
+    public void TakeDamageTurtle()
+    {
+        turtleLives--;
+
+        if (turtleLives <= 0)
+        {
+            _animator.SetBool("isGameOver_S", true);
+            _agent.SetDestination(transform.position); //se queda en el sitio
+            Destroy(gameObject, 3);
         }
     }
 
     private void OnCollisionEnter(Collision otherCollider) //collider ground
     {
-        if (otherCollider.gameObject.Equals("Slime"))
+        if (otherCollider.gameObject.CompareTag("Player"))
         {
-            _playerController.lives--;
+            _playerController.TakeDamage();
         }
     }
 

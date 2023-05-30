@@ -21,6 +21,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         btnPause.SetActive(false);
         panelPauseMenu.SetActive(true);
+        
         _audioSource.PlayOneShot(soundPause);
     }
     

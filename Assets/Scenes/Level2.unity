@@ -11378,8 +11378,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.38924336, y: 1.3304198, z: 0.075077206}
-  m_Center: {x: 0.00000013475967, y: -0.49534166, z: 0.00000017904463}
+  m_Size: {x: 0.12723002, y: 0.78021926, z: 0.075077206}
+  m_Center: {x: -0.007440804, y: -0.7567179, z: 0.00000024037254}
+--- !u!114 &339941396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339941390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c55fb1c5330cd949a17444de4e7354a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &341429296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71490,22 +71502,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 1874844661}
   _playerController: {fileID: 1147605816}
---- !u!114 &1955143266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409093814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6faa87423c7073439a292e6291cb272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btnPause: {fileID: 715056284}
-  panelPauseMenu: {fileID: 134070509}
-  soundPause: {fileID: 0}
-  soundResume: {fileID: 0}
 --- !u!82 &1955143269
 AudioSource:
   m_ObjectHideFlags: 0
