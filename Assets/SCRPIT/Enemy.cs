@@ -132,13 +132,13 @@ public class Enemy : MonoBehaviour
 
         if (turtleLives <= 0)
         {
-            _animator.SetBool("isGameOver_S", true);
+            _animator.SetBool("isGameOver_TS", true);
             _agent.SetDestination(transform.position); //se queda en el sitio
             Destroy(gameObject, 3);
         }
     }
 
-    private void OnCollisionEnter(Collision otherCollider) //collider ground
+    private void OnCollisionEnter(Collision otherCollider)
     {
         if (otherCollider.gameObject.CompareTag("Player"))
         {

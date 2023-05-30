@@ -41199,6 +41199,11 @@ PrefabInstance:
       objectReference: {fileID: 432188262}
     - target: {fileID: 5533695097220183676, guid: 4a4ae0385a73a3443a4cc5ef77fc75e3,
         type: 3}
+      propertyPath: _gameOver
+      value: 
+      objectReference: {fileID: 1955143263}
+    - target: {fileID: 5533695097220183676, guid: 4a4ae0385a73a3443a4cc5ef77fc75e3,
+        type: 3}
       propertyPath: livesText
       value: 
       objectReference: {fileID: 1839635981}
@@ -41266,6 +41271,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533695097220183679, guid: 4a4ae0385a73a3443a4cc5ef77fc75e3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5588352559547539606, guid: 4a4ae0385a73a3443a4cc5ef77fc75e3,
         type: 3}

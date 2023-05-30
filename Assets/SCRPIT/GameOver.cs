@@ -8,6 +8,7 @@ public class GameOver : MonoBehaviour
     // Game Over
     public GameObject gameOverPanel;
     [SerializeField] private PlayerController _playerController;
+    private float yMin = -2;
 
     private void Start()
     {
@@ -22,15 +23,20 @@ public class GameOver : MonoBehaviour
         {
             GameOverLevels();
         }
+        else if(_playerController.transform.position.y < yMin)
+        {
+            GameOverLevels();
+        }
     }
 
     public void GameOverLevels()
     {
         gameOverPanel.SetActive(true);
         _playerController.dirtParticle.Stop();
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            gameOverPanel.SetActive(false);
-        }
+        Time.timeScale = 0f;
     }
+
+    
+       
 }
+

@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed;
 
     //speed
-    public float walkSpeed = 8f;
-    public float runSpeed= 10f;
+    public float walkSpeed = 5f;
+    public float runSpeed= 7f;
 
     public float jumpForce = 10f;
 
@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private BoxCollider swordCollider;
     public ParticleSystem dirtParticle;
+    [SerializeField] private GameOver _gameOver;
 
 
     private void Start()
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         winPanel.SetActive(false);
         swordCollider.enabled = false;
+        _gameOver = FindObjectOfType<GameOver>();
     }
     
 
@@ -162,12 +164,21 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        lives--;
+        if (gameObject.CompareTag("Slime"))
+        {
+            lives--;
+            livesText.text = $"{lives}";
+        }
+        else
+        {
+            lives -= 2;
+            livesText.text = $"{lives}";
+        }
     
         if (lives <= 0)
         {
             _animator.SetBool("Die",true);
-            //asigasr panel game over
+            _gameOver.GameOverLevels();
         }
     }
 
@@ -183,7 +194,7 @@ private void GetCoins(Collider other) // Destroy the collectable
     {
         Destroy(other.gameObject);
         Counter++;
-        counterText.text = $"Coins: {Counter}";
+        counterText.text = $"{Counter}";
         _audioSource.PlayOneShot(collectables[1]);
 
     }
@@ -192,7 +203,7 @@ private void GetCoins(Collider other) // Destroy the collectable
     {
         Destroy(other.gameObject);
         lives++;
-        livesText.text = $"Lives: {lives}";
+        livesText.text = $"{lives}";
         hasPowerupLife = true;
         _audioSource.PlayOneShot(collectables[2]);
     }

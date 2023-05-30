@@ -14,7 +14,7 @@ public class SwordCollider : MonoBehaviour
 
         if (other.gameObject.CompareTag("Turtle Shell"))
         {
-            //other.gameObject.GetComponent<Enemy>().TakeDamage();
+            other.gameObject.GetComponent<Enemy>().TakeDamageTurtle();
         }
     }
 }
