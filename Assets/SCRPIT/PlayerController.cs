@@ -208,7 +208,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             winPanel.SetActive(true);
-            Time.timeScale = 0f;
+            timer = 60;
             _audioSource.PlayOneShot(collectables[3]);
         }
         else
@@ -220,7 +220,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             winPanel.SetActive(true);
-            Time.timeScale = 0f;
+            timer = 120;
             _audioSource.PlayOneShot(collectables[3]);
         }
         else
