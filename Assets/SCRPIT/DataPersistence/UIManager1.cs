@@ -5,15 +5,20 @@ using TMPro;
 
 public class UIManager1 : MonoBehaviour
 {
+    // UIManager 1 -- Saves the username information
+
     public TMP_InputField inputField;
+
+    private string existingUsername;
+    private const string USERNAME = "USERNAME"; 
 
     private void Start()
     {
-        existingUsername = PlayerPrefs.GetString(USERNAME); // Busca si existe la clave username
+        existingUsername = PlayerPrefs.GetString(USERNAME); 
 
         if (existingUsername != "")
         {
-            inputField.placeholder.GetComponent<TextMeshProUGUI>().text = existingUsername; // Si se ha guardado un username en player prefs, se sobrescribe
+            inputField.placeholder.GetComponent<TextMeshProUGUI>().text = existingUsername; 
         }
     }
 
@@ -37,8 +42,4 @@ public class UIManager1 : MonoBehaviour
    {
        PlayerPrefs.SetString("USERNAME", DataPersistence.sharedInstance.username);
    }
-
-   private string existingUsername;
-   private const string USERNAME = "USERNAME"; // tipo CONS no se puede modificar, es una constante
-   
 }

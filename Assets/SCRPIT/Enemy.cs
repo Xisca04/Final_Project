@@ -2,46 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
 
 public class Enemy : MonoBehaviour
 {
-    //SLIME ENEMY
+    // Both enemies
 
+    // Script communication
     [SerializeField] private Transform player;
     [SerializeField] private PlayerController _playerController;
+    //[SerializeField] private PostProcessing _postProcessing;
 
+    // References
     private NavMeshAgent _agent;
     private Animator _animator;
 
-    //Live n Damage
+    //Lives
     private int slimeLives = 1;
-    private float slimeDamge = 1f;
     private int turtleLives = 2;
-    private float turtleDamage = 2f;
-
+    
+   
+    // Vision
     private float visionRange = 3.5f;
     private float attackRange = 2f;
-
     [SerializeField] private bool playerInVisionRange;
     [SerializeField] private bool playerInAttackRange;
-
     [SerializeField] private LayerMask playerLayer;
 
     // PATRULLA - Variables
-
     [SerializeField] private Transform[] waypoints; // Las localizaciones donde hara un recorrido de patrulla
     private int totalWaypoints;
     [SerializeField] private int nextPoint;
 
     // ATAQUE - Variables
-
     private float timeBetweenAttacks = 2f;
     private bool canAttack;
-    private float upAttackForce = 15f;
-    private float forwardAttackForce = 18f;
 
     // Audio
-
     public AudioSource _audioSourceSlime;
     public AudioSource _audioSourceTurtle;
     public AudioClip slimeAttack; 
@@ -58,6 +57,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _playerController = FindObjectOfType<PlayerController>();
+        //_postProcessing = FindObjectOfType<PostProcessing>();
         totalWaypoints = waypoints.Length;
         nextPoint = 1;
         canAttack = false;
@@ -124,12 +124,15 @@ public class Enemy : MonoBehaviour
         _animator.SetTrigger("Attack_TS");
         _audioSourceTurtle.PlayOneShot(turtleAttack);
 
+       // _postProcessing.StartCoroutine(Desactive());
+
         if (canAttack)
         {
             canAttack = false;
             StartCoroutine(AttackCoolDown());
         }
     }
+
     public void TakeDamage()
     {
         slimeLives--;
@@ -172,11 +175,11 @@ public class Enemy : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        // Esfera de visi�n
+        // Vision sphere
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, visionRange);
 
-        // Esfera de ataque
+        // Attack sphere
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class AudioSttings : MonoBehaviour
 {
+    // Audio Settings to save between scenes
+
     private static readonly string BackgroundPref = "BackgroundPref";
     private static readonly string SoundEffectsPref = "SoundEffectsPref";
-
     private float backgroundFloat, soundEffectsFloat;
 
     public AudioSource backgroundAudio;
@@ -16,6 +17,7 @@ public class AudioSttings : MonoBehaviour
     {
         //ContinueSettings();
     }
+
     /*
     private void ContinueSettings()
     {

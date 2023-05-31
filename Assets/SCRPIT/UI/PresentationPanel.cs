@@ -5,10 +5,15 @@ using TMPro;
 
 public class PresentationPanel : MonoBehaviour
 {
+    // Presentation level 1
+
     public GameObject panelPresenation;
-    [SerializeField] private PlayerController _playerController;
-    [TextArea]public string _tutorialMessage;
+    [TextArea] public string _tutorialMessage;
     public TextMeshProUGUI text;
+    
+    //Communication script
+    [SerializeField] private PlayerController _playerController;
+    
 
     private void Start()
     {

@@ -6,9 +6,7 @@ using UnityEngine.UI;
 
 public static class CorrutinaText
 {
-    // Corrutina texto - máquina escribir
-
-    
+    // Courutine of the text message
 
     public static IEnumerator WritingText(string uiText, TextMeshProUGUI textBox)
     {
@@ -17,24 +15,7 @@ public static class CorrutinaText
         foreach(char character in uiText)
         {
             textBox.text = textBox.text + character;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
-
-    /*
-    private IEnumerator WritingText()
-    {
-        string message = "";
-
-        foreach (char character in uiText)
-        {
-            yield return new WaitForSeconds(1);
-            message = message + uiText;
-
-            _uiText.text = $"{message}";
-        }
-
-        
-    }
-    */
 }

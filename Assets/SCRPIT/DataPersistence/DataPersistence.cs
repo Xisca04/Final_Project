@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DataPersistence : MonoBehaviour
 {
-    public static DataPersistence sharedInstance;
+    // Data Persistence to save the username
 
+    public static DataPersistence sharedInstance;
     public string username;
 
     private void Awake()  

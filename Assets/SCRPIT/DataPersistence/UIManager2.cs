@@ -5,6 +5,7 @@ using TMPro;
 
 public class UIManager2 : MonoBehaviour
 {
+    // UIManager 2 -- Show the message with the username
 
     public TextMeshProUGUI welcomeText;
 

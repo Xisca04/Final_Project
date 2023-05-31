@@ -6,55 +6,56 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    //movment
+    // Player Controller
+
+    // Movement
     private float verticalInput; 
     private float moveSpeed;
 
-    //speed
+    // Speed
     public float walkSpeed = 5f;
     public float runSpeed= 7f;
-
     public float jumpForce = 10f;
-
     public float mouseSensitivity;
 
     [SerializeField] private bool isOnTheGround;
     private Rigidbody _rigidbody;
     private Animator _animator;
 
-    //powerups
+    // Powerups
     public bool hasPowerupLife;
     public int lives = 3;
     public float timer = 0;
 
-    //UI
+    // UI
     public TextMeshProUGUI counterText;
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI _timer;
     public GameObject winPanel;
     public int Counter;
    
-    //Audio
-    private AudioSource _audioSource;
+    // Audio
     public AudioClip[] collectables;
-    private AudioSource _audioAttack;
     public AudioClip[] attackSounds;
     public AudioClip errorGem;
-
-    [SerializeField] private BoxCollider swordCollider;
     public ParticleSystem dirtParticle;
+    
+    private AudioSource _audioSource;
+    private AudioSource _audioAttack;
+    [SerializeField] private BoxCollider swordCollider;
     [SerializeField] private GameOver _gameOver;
 
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _animator = GetComponentInChildren<Animator>();
-        // Cursor.lockState = CursorLockMode.Locked; //press [esc] to exit the mode  
+        _animator = GetComponentInChildren<Animator>();  
         _audioSource = GetComponent<AudioSource>();
+        _gameOver = FindObjectOfType<GameOver>();
+        
         winPanel.SetActive(false);
         swordCollider.enabled = false;
-        _gameOver = FindObjectOfType<GameOver>();
+        
     }
     
 
@@ -63,41 +64,33 @@ public class PlayerController : MonoBehaviour
         //  Time
         CountDown();
 
-
         Movment();
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)) //left botton down
+        if (Input.GetKeyDown(KeyCode.Mouse0)) // Left botton down
         {
             Attack();
         }
        
-
-        if (Input.GetKeyDown(KeyCode.Space) && isOnTheGround ) //salto con el espacio y no podré saltar si es gameover(MUERTO)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnTheGround) 
         {
             Jump();
         }
-
-        SaltoEscena();
     }
 
-    private void OnCollisionEnter(Collision otherCollider) //collider ground
+    private void OnCollisionEnter(Collision otherCollider) // Collider ground
     {
         if (otherCollider.gameObject.Equals("Ground"))
         {
             isOnTheGround = true;
         }
-
-  
     }
-
 
     private void Movment()
     {
-       
-        verticalInput = Input.GetAxis("Vertical");
-       transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime * verticalInput); //right,horizontal
+       verticalInput = Input.GetAxis("Vertical");
+       transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime * verticalInput); // right,horizontal
 
-        float mouseX = Input.GetAxis("Mouse X"); //mouse rotation
+        float mouseX = Input.GetAxis("Mouse X"); // mouse rotation
                                                  
         transform.Rotate(Vector3.up, mouseSensitivity * mouseX * Time.deltaTime);
 
@@ -135,7 +128,7 @@ public class PlayerController : MonoBehaviour
     private void Run()
     {
         moveSpeed = runSpeed;
-        _animator.SetFloat("Speed", 1f, 0.1f,Time.deltaTime); //adding the smooth
+        _animator.SetFloat("Speed", 1f, 0.1f,Time.deltaTime); 
         TWOstaminaMaria.instance.UseStamina(40);
         dirtParticle.Play();
     }
@@ -144,7 +137,6 @@ public class PlayerController : MonoBehaviour
         isOnTheGround = false;
         _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         dirtParticle.Stop();
-
     }
 
     private void Attack()
@@ -156,7 +148,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine("TimeSwordCollider");
         ChooseRandomSFX(attackSounds);
     }
-    private IEnumerator TimeSwordCollider()
+    private IEnumerator TimeSwordCollider() // Actives the sword collider 
     {
         yield return new WaitForSeconds(1);
         swordCollider.enabled = false;
@@ -190,7 +182,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-private void GetCoins(Collider other) // Destroy the collectable
+    // Collectables
+
+    private void GetCoins(Collider other) 
     {
         Destroy(other.gameObject);
         Counter++;
@@ -214,8 +208,7 @@ private void GetCoins(Collider other) // Destroy the collectable
         {
             Destroy(other.gameObject);
             winPanel.SetActive(true);
-            SaltoEscena();
-            timer = 60;
+            Time.timeScale = 0f;
             _audioSource.PlayOneShot(collectables[3]);
         }
         else
@@ -227,7 +220,7 @@ private void GetCoins(Collider other) // Destroy the collectable
         {
             Destroy(other.gameObject);
             winPanel.SetActive(true);
-            timer = 120;
+            Time.timeScale = 0f;
             _audioSource.PlayOneShot(collectables[3]);
         }
         else
@@ -260,13 +253,10 @@ private void GetCoins(Collider other) // Destroy the collectable
         {
             GetHourGlass(other);
             timer += 10;
-        } else if (other.gameObject.tag.Equals("Enemy"))
-        {
-            //TODO: comprobar que la espada destruye al enemigo
         }
     }
 
-    private void CountDown()
+    private void CountDown() // Timer
     {
         timer -= Time.deltaTime;
         _timer.text = "" + timer.ToString("f1");
@@ -274,19 +264,6 @@ private void GetCoins(Collider other) // Destroy the collectable
         if (timer <= 0)
         {
             timer = 0;
-        }
-    }
-
-    public void SaltoEscena()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            SceneManager.LoadScene("Level2");
-        }
-
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            SceneManager.LoadScene("Credits");
         }
     }
 }

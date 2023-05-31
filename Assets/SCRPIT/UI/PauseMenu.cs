@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    // Pause menu with functions buttons
+
     [SerializeField] GameObject btnPause;
     [SerializeField] GameObject panelPauseMenu;
+
+    // Audio
     private AudioSource _audioSource;
-    //private AudioSource _audioSourceResume;
     public AudioClip soundPause;
     public AudioClip soundResume;
 

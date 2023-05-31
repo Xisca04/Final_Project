@@ -6,9 +6,13 @@ using TMPro;
 public class GameOver : MonoBehaviour
 {
     // Game Over
+
     public GameObject gameOverPanel;
-    [SerializeField] private PlayerController _playerController;
     private float yMin = -2;
+    
+    // Communication script
+    [SerializeField] private PlayerController _playerController;
+    
 
     private void Start()
     {

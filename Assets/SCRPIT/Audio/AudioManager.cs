@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
+    // Control of the sliders audio
+
     private static readonly string FirstPlay = "FirstPlay";
     private static readonly string BackgroundPref = "BackgroundPref";
     private static readonly string SoundEffectsPref = "SoundEffectsPref";
-
     private int firstPlayInt;
-    public Slider backgroundSlider, soundEffectsSlider;
     private float backgroundFloat, soundEffectsFloat;
 
+    public Slider backgroundSlider, soundEffectsSlider;
     public AudioSource backgroundAudio;
     public AudioSource[] soundEffectsAudio;
 
@@ -20,7 +21,7 @@ public class AudioManager : MonoBehaviour
     {
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
-        if (firstPlayInt == 0) //sonido de cuando el user enciende la app
+        if (firstPlayInt == 0) // Main menu backround
         {
             backgroundFloat = 0.25f;
             soundEffectsFloat = 1f;
@@ -30,7 +31,7 @@ public class AudioManager : MonoBehaviour
             PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsFloat);
             PlayerPrefs.SetInt(FirstPlay, -1);
         }
-        else //pull the values from the player prefs
+        else // Pull the values from the player prefs
         {
             backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
             backgroundSlider.value = backgroundFloat;
@@ -45,7 +46,7 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsSlider.value);
     }
 
-    void OnApplicationFocus(bool inFocus) //save the values even if you quit the game
+    void OnApplicationFocus(bool inFocus) // Save the values even if you quit the game
     {
         SaveSoundSettings();
     }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UpDown : MonoBehaviour
 {
+    // To elevate the plataforms
+
     float speed = 0.4f;
     float height = 5f;
     float startY = 3f;

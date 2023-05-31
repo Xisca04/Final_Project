@@ -6,14 +6,13 @@ using UnityEngine.UI;
 
 public class TWOstaminaMaria : MonoBehaviour
 {
-    // stamina variables
-    public Slider staminaBar;
+    // Stamina 
 
     private float  maxStamina = 100;
     private float  currentStamina;
     
+    public Slider staminaBar;
     public static TWOstaminaMaria  instance;
-
     public bool hasStamina = true;
 
 

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SwordCollider : MonoBehaviour
 {
-    
+    // Sword detect enemies
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Slime"))

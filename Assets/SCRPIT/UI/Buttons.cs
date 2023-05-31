@@ -7,8 +7,13 @@ using UnityEditor;
 
 public class Buttons : MonoBehaviour
 {
+    // Functions' buttons
 
     public TextMeshProUGUI usernametext;
+    public GameObject instructionsPanel;
+    public GameObject optionsPanel;
+    public GameObject usernamePanel;
+
     private void Start()
     {
         instructionsPanel.SetActive(false);
@@ -16,7 +21,7 @@ public class Buttons : MonoBehaviour
         usernamePanel.SetActive(false);
     }
     
-    // Cambio escena al 1r nivel + username
+    // Change the scene and saves the username
 
     public void GoToScene(int sceneIDX)
     {
@@ -24,12 +29,14 @@ public class Buttons : MonoBehaviour
         SceneManager.LoadScene(sceneIDX);
     }
 
-    public GameObject instructionsPanel;
+    // Active instructions panel
 
     public void InstructionsOn()
     {
         instructionsPanel.SetActive(true);
     }
+
+    // Return to back menu
 
     public void ReturnMain()
     {
@@ -37,11 +44,14 @@ public class Buttons : MonoBehaviour
         optionsPanel.SetActive(false);
     }
 
-    public GameObject optionsPanel;
+    // Active options panel
+
     public void OptionsOn()
     {
         optionsPanel.SetActive(true);
     }
+
+    // Exit the game
 
     public void QuitGame()
     {
@@ -52,7 +62,8 @@ public class Buttons : MonoBehaviour
 #endif
     }
 
-    public GameObject usernamePanel;
+    // Active username panel
+
     public void UsernamePanel()
     {
         usernamePanel.SetActive(true);
