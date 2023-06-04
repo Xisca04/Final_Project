@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     //Lives
     private int slimeLives = 1;
     private int turtleLives = 2;
-    
+    // [SerializeField] private int enemiesLives;
    
     // Vision
     private float visionRange = 3.5f;
@@ -90,8 +90,6 @@ public class Enemy : MonoBehaviour
 
     private void Patrol()
     {
-        
-
         if (Vector3.Distance(transform.position, waypoints[nextPoint].position) < 2.5f)
         {
             nextPoint++;
