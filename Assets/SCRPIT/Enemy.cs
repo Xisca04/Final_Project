@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     //Lives
     private int slimeLives = 1;
     private int turtleLives = 2;
-    // [SerializeField] private int enemiesLives;
+    //*** [SerializeField] private int enemiesLives;
    
     // Vision
     private float visionRange = 3.5f;
