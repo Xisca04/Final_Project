@@ -22813,10 +22813,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelPresenation: {fileID: 832450867}
   panelWarning: {fileID: 1099762635}
-  _playerController: {fileID: 1147605816}
   _tutorialMessage: Congratulations! You have managed to reach level 2. You have
     to get the precious gem and at least 12 coins.  Are you ready?
   text: {fileID: 901916350}
+  _playerController: {fileID: 1147605816}
 --- !u!1001 &637756520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28561,6 +28561,11 @@ PrefabInstance:
       propertyPath: turtleDeath
       value: 
       objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: enemiesLives
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
         type: 3}
       propertyPath: turtleAttack
@@ -37912,6 +37917,11 @@ PrefabInstance:
       propertyPath: turtleDeath
       value: 
       objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: enemiesLives
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
       propertyPath: turtleAttack

@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
     private float moveSpeed;
 
     // Speed
-    public float walkSpeed = 5f;
-    public float runSpeed= 7f;
-    public float jumpForce = 10f;
+    private float walkSpeed = 4f;
+    private float runSpeed= 6.5f;
+    private float jumpForce = 10f;
     public float mouseSensitivity;
 
     [SerializeField] private bool isOnTheGround;
@@ -75,6 +75,8 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
+        dirtParticle.Play();
     }
 
     private void OnCollisionEnter(Collision otherCollider) // Collider ground
@@ -123,14 +125,14 @@ public class PlayerController : MonoBehaviour
         moveSpeed = walkSpeed;
         _animator.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
         TWOstaminaMaria.instance.RegenStamina(15);
-        dirtParticle.Play();
+        
     }
     private void Run()
     {
         moveSpeed = runSpeed;
         _animator.SetFloat("Speed", 1f, 0.1f,Time.deltaTime); 
         TWOstaminaMaria.instance.UseStamina(40);
-        dirtParticle.Play();
+        
     }
     private void Jump()
     {
@@ -161,7 +163,7 @@ public class PlayerController : MonoBehaviour
             lives--;
             livesText.text = $"{lives}";
         }
-        else
+        else if(gameObject.CompareTag("Turtle Shell"))
         {
             lives -= 2;
             livesText.text = $"{lives}";
@@ -204,7 +206,7 @@ public class PlayerController : MonoBehaviour
 
     public void GetGemFinish(Collider other)
     {
-        if (Counter >= 10)
+        if (Counter >= 10) // Level 1
         {
             Destroy(other.gameObject);
             winPanel.SetActive(true);
@@ -216,7 +218,7 @@ public class PlayerController : MonoBehaviour
             _audioSource.PlayOneShot(errorGem);
         }
 
-        if(Counter >= 12)
+        if(Counter >= 12)  // Level 2
         {
             Destroy(other.gameObject);
             winPanel.SetActive(true);

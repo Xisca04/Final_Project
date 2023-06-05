@@ -20,13 +20,11 @@ public class Enemy : MonoBehaviour
     private Animator _animator;
 
     //Lives
-    private int slimeLives = 1;
-    private int turtleLives = 2;
-    //*** [SerializeField] private int enemiesLives;
+    [SerializeField] private int enemiesLives;
    
     // Vision
     private float visionRange = 3.5f;
-    private float attackRange = 2f;
+    private float attackRange = 1.5f;
     [SerializeField] private bool playerInVisionRange;
     [SerializeField] private bool playerInAttackRange;
     [SerializeField] private LayerMask playerLayer;
@@ -133,9 +131,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage()
     {
-        slimeLives--;
+        enemiesLives--;
    
-        if (slimeLives <= 0)
+        if (enemiesLives <= 0)
         {
            _animator.SetBool("isGameOver_S",true);
             _audioSourceSlime.PlayOneShot(slimeDeath);
@@ -146,9 +144,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamageTurtle()
     {
-        turtleLives--;
+        enemiesLives--;
 
-        if (turtleLives <= 0)
+        if (enemiesLives <= 0)
         {
             _animator.SetBool("isGameOver_TS", true);
             _audioSourceTurtle.PlayOneShot(turtleDeath);
