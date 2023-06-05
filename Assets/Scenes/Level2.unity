@@ -7669,6 +7669,16 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
     - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
         type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 203811945}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: enemiesLives
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
       propertyPath: turtleAttack
       value: 
       objectReference: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
@@ -7752,6 +7762,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38efdaadbfe1d624bbee439cb02e7661, type: 3}
+--- !u!82 &203811945 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -186457885873655437, guid: 38efdaadbfe1d624bbee439cb02e7661,
+    type: 3}
+  m_PrefabInstance: {fileID: 203811944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &204320466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10018,6 +10034,16 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 293158703}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: enemiesLives
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
       propertyPath: turtleAttack
       value: 
       objectReference: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
@@ -10068,6 +10094,12 @@ PrefabInstance:
       objectReference: {fileID: 1315730765}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55776efecb0cd134ea5f418c2f97a705, type: 3}
+--- !u!82 &293158703 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3246482509405113016, guid: 55776efecb0cd134ea5f418c2f97a705,
+    type: 3}
+  m_PrefabInstance: {fileID: 293158702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &294731611 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4661435515762813124, guid: e289bf5debb17f6459818c207d781953,
@@ -28563,6 +28595,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
     - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
         type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 766673092}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
       propertyPath: enemiesLives
       value: 2
       objectReference: {fileID: 0}
@@ -28656,6 +28693,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38efdaadbfe1d624bbee439cb02e7661, type: 3}
+--- !u!82 &766673092 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -186457885873655437, guid: 38efdaadbfe1d624bbee439cb02e7661,
+    type: 3}
+  m_PrefabInstance: {fileID: 766673091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &767192549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37919,6 +37962,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 1023626159}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
       propertyPath: enemiesLives
       value: 1
       objectReference: {fileID: 0}
@@ -37969,6 +38017,12 @@ PrefabInstance:
       objectReference: {fileID: 1456311205}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55776efecb0cd134ea5f418c2f97a705, type: 3}
+--- !u!82 &1023626159 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3246482509405113016, guid: 55776efecb0cd134ea5f418c2f97a705,
+    type: 3}
+  m_PrefabInstance: {fileID: 1023626158}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1024197407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45105,6 +45159,16 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 1239109558}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: enemiesLives
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
       propertyPath: turtleAttack
       value: 
       objectReference: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
@@ -45135,6 +45199,12 @@ PrefabInstance:
       objectReference: {fileID: 1079188812}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55776efecb0cd134ea5f418c2f97a705, type: 3}
+--- !u!82 &1239109558 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3246482509405113016, guid: 55776efecb0cd134ea5f418c2f97a705,
+    type: 3}
+  m_PrefabInstance: {fileID: 1239109557}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1239385529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51784,6 +51854,16 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
     - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
         type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 1425580804}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
+      propertyPath: enemiesLives
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581800638265994364, guid: 55776efecb0cd134ea5f418c2f97a705,
+        type: 3}
       propertyPath: turtleAttack
       value: 
       objectReference: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
@@ -51814,6 +51894,12 @@ PrefabInstance:
       objectReference: {fileID: 1621390611}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55776efecb0cd134ea5f418c2f97a705, type: 3}
+--- !u!82 &1425580804 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3246482509405113016, guid: 55776efecb0cd134ea5f418c2f97a705,
+    type: 3}
+  m_PrefabInstance: {fileID: 1425580803}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1427190600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67554,6 +67640,16 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
     - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
         type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 1854821020}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
+      propertyPath: enemiesLives
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7483085351915693898, guid: 38efdaadbfe1d624bbee439cb02e7661,
+        type: 3}
       propertyPath: turtleAttack
       value: 
       objectReference: {fileID: 8300000, guid: 7c47b20bb9874304a809dc5580d403ba, type: 3}
@@ -67637,6 +67733,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38efdaadbfe1d624bbee439cb02e7661, type: 3}
+--- !u!82 &1854821020 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -186457885873655437, guid: 38efdaadbfe1d624bbee439cb02e7661,
+    type: 3}
+  m_PrefabInstance: {fileID: 1854821019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1857063041
 PrefabInstance:
   m_ObjectHideFlags: 0
