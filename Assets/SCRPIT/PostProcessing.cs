@@ -10,7 +10,7 @@ public class PostProcessing : MonoBehaviour
     // Post processing -- vignette
 
     private Volume volume;
-    private Vignette vignette;
+    [SerializeField] private Vignette vignette;
 
     private void Awake()
     {
@@ -20,11 +20,12 @@ public class PostProcessing : MonoBehaviour
     private void Start()
     {
         volume.profile.TryGet(out vignette); 
-        vignette.active = true; 
+        
     }
 
-    private IEnumerator Desactive() // Active and descative the vignette
+    public IEnumerator Desactive() // Active and descative the vignette
     {
+        vignette.active = true;
         yield return new WaitForSeconds(3);
         vignette.intensity.value = 1f;
         vignette.color.value = Color.red;

@@ -81,7 +81,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision otherCollider) // Collider ground
     {
-        if (otherCollider.gameObject.Equals("Ground"))
+
+        if (otherCollider.gameObject.CompareTag("Ground"))
         {
             isOnTheGround = true;
         }

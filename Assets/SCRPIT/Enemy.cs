@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     // Script communication
     [SerializeField] private Transform player;
     [SerializeField] private PlayerController _playerController;
-    //[SerializeField] private PostProcessing _postProcessing;
+    [SerializeField] private PostProcessing _postProcessing;
 
     // References
     private NavMeshAgent _agent;
@@ -39,12 +39,11 @@ public class Enemy : MonoBehaviour
     private bool canAttack;
 
     // Audio
-    public AudioSource _audioSourceSlime;
-    public AudioSource _audioSourceTurtle;
-    public AudioClip slimeAttack; 
-    public AudioClip turtleAttack;
-    public AudioClip slimeDeath;
-    public AudioClip turtleDeath;
+    public AudioSource _audioSource;
+    public AudioClip enemyAttack; 
+    public AudioClip enemyDeath;
+
+    [SerializeField] private bool isRed;
 
     private void Awake()
     {
@@ -55,12 +54,11 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _playerController = FindObjectOfType<PlayerController>();
-        //_postProcessing = FindObjectOfType<PostProcessing>();
+        _postProcessing = FindObjectOfType<PostProcessing>();
         totalWaypoints = waypoints.Length;
         nextPoint = 1;
         canAttack = false;
-        _audioSourceSlime = GetComponent<AudioSource>();
-        _audioSourceTurtle = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update() // Se movera hacia el destino
@@ -112,15 +110,24 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        _agent.SetDestination(transform.position);
-        _animator.SetTrigger("Attack_S");
-        _audioSourceSlime.PlayOneShot(slimeAttack);
+        if (isRed)
+        {
+            _agent.SetDestination(transform.position);
+            _animator.SetTrigger("Attack_S");
+           
+        }
+        else
+        {
+            _animator.SetInteger("Attack_type_TS", Random.Range(1, 3));
+            _animator.SetTrigger("Attack_TS");
+            
+            
+        }
+       
+      
+        _audioSource.PlayOneShot(enemyAttack);
 
-        _animator.SetInteger("Attack_type_TS", Random.Range(1, 3));
-        _animator.SetTrigger("Attack_TS");
-        _audioSourceTurtle.PlayOneShot(turtleAttack);
-
-       // _postProcessing.StartCoroutine(Desactive());
+        StartCoroutine(_postProcessing.Desactive());
 
         if (canAttack)
         {
@@ -135,21 +142,15 @@ public class Enemy : MonoBehaviour
    
         if (enemiesLives <= 0)
         {
-           _animator.SetBool("isGameOver_S",true);
-            _audioSourceSlime.PlayOneShot(slimeDeath);
-            _agent.SetDestination(transform.position); //se queda en el sitio
-            Destroy(gameObject, 3);
-        }
-    }
-
-    public void TakeDamageTurtle()
-    {
-        enemiesLives--;
-
-        if (enemiesLives <= 0)
-        {
-            _animator.SetBool("isGameOver_TS", true);
-            _audioSourceTurtle.PlayOneShot(turtleDeath);
+            if (isRed)
+            {
+                _animator.SetBool("isGameOver_S", true);
+            }
+            else
+            {
+                _animator.SetBool("isGameOver_TS", true);
+            }
+            _audioSource.PlayOneShot(enemyDeath);
             _agent.SetDestination(transform.position); //se queda en el sitio
             Destroy(gameObject, 3);
         }
@@ -160,6 +161,7 @@ public class Enemy : MonoBehaviour
         if (otherCollider.gameObject.CompareTag("Player"))
         {
             _playerController.TakeDamage();
+            
         }
     }
 

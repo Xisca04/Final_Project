@@ -25,7 +25,6 @@ public class Buttons : MonoBehaviour
 
     public void GoToScene(int sceneIDX)
     {
-        DataPersistence.sharedInstance.username = usernametext.text;
         SceneManager.LoadScene(sceneIDX);
     }
 

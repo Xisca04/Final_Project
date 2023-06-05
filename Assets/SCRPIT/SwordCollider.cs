@@ -8,14 +8,10 @@ public class SwordCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Slime"))
+        if (other.gameObject.CompareTag("Slime") || other.gameObject.CompareTag("Turtle Shell"))
         {
             other.gameObject.GetComponent<Enemy>().TakeDamage();
         }
 
-        if (other.gameObject.CompareTag("Turtle Shell"))
-        {
-            other.gameObject.GetComponent<Enemy>().TakeDamageTurtle();
-        }
     }
 }
