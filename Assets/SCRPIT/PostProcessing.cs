@@ -22,14 +22,18 @@ public class PostProcessing : MonoBehaviour
         volume.profile.TryGet(out vignette); 
     }
 
-    public IEnumerator Desactive() // Active and descative the vignette
+    public IEnumerator Desactive() // Descative the vignette
+    {
+        yield return new WaitForSeconds(0.1f);
+        //vignette.intensity.value = 0.5f;
+        vignette.active = false;
+    }
+
+    public IEnumerator Active() // Active the vignette
     {
         vignette.active = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1f);
         vignette.intensity.value = 1f;
         vignette.color.value = Color.red;
-
-        yield return new WaitForSeconds(2);
-        vignette.active = false;
     }
 }

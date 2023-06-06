@@ -127,7 +127,7 @@ public class Enemy : MonoBehaviour
       
         _audioSource.PlayOneShot(enemyAttack);
 
-        StartCoroutine(_postProcessing.Desactive());
+        StartCoroutine(_postProcessing.Active());
 
         if (canAttack)
         {
@@ -151,6 +151,7 @@ public class Enemy : MonoBehaviour
                 _animator.SetBool("isGameOver_TS", true);
             }
             
+            StartCoroutine(_postProcessing.Desactive());
             _audioSource.PlayOneShot(enemyDeath);
             _agent.SetDestination(transform.position); //se queda en el sitio
             Destroy(gameObject, 3);
