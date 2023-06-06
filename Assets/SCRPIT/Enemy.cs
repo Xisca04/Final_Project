@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int nextPoint;
 
     // ATAQUE - Variables
-    private float timeBetweenAttacks = 2f;
+    private float timeBetweenAttacks = 4f;
     private bool canAttack;
 
     // Audio
@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
     public AudioClip enemyAttack; 
     public AudioClip enemyDeath;
 
-    [SerializeField] private bool isRed;
+    public bool isRed;
 
     private void Awake()
     {
@@ -150,6 +150,7 @@ public class Enemy : MonoBehaviour
             {
                 _animator.SetBool("isGameOver_TS", true);
             }
+            
             _audioSource.PlayOneShot(enemyDeath);
             _agent.SetDestination(transform.position); //se queda en el sitio
             Destroy(gameObject, 3);

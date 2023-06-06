@@ -45,9 +45,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private BoxCollider swordCollider;
     [SerializeField] private GameOver _gameOver;
 
+    //Communication
+    [SerializeField] private Enemy _enemy;
+
 
     private void Start()
     {
+        _enemy = FindObjectOfType<Enemy>();
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();  
         _audioSource = GetComponent<AudioSource>();
@@ -55,7 +59,6 @@ public class PlayerController : MonoBehaviour
         
         winPanel.SetActive(false);
         swordCollider.enabled = false;
-        
     }
     
 
@@ -76,7 +79,10 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
 
-        dirtParticle.Play();
+        if (!dirtParticle.isPlaying) 
+        {
+            dirtParticle.Play();
+        }
     }
 
     private void OnCollisionEnter(Collision otherCollider) // Collider ground
@@ -126,14 +132,12 @@ public class PlayerController : MonoBehaviour
         moveSpeed = walkSpeed;
         _animator.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
         TWOstaminaMaria.instance.RegenStamina(15);
-        
     }
     private void Run()
     {
         moveSpeed = runSpeed;
         _animator.SetFloat("Speed", 1f, 0.1f,Time.deltaTime); 
         TWOstaminaMaria.instance.UseStamina(40);
-        
     }
     private void Jump()
     {
@@ -159,12 +163,12 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        if (gameObject.CompareTag("Slime"))
+        if (_enemy.isRed)
         {
             lives--;
             livesText.text = $"{lives}";
         }
-        else if(gameObject.CompareTag("Turtle Shell"))
+        else
         {
             lives -= 2;
             livesText.text = $"{lives}";

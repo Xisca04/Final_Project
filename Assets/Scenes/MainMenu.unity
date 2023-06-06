@@ -405,6 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 124671431}
   - component: {fileID: 124671432}
+  - component: {fileID: 124671433}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -440,6 +441,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 592669389}
+  _sliderBackground: {fileID: 1828306321}
+  musicVolume: 0
+--- !u!114 &124671433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124671430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f80a1bcee89d9941aadac1d39cf26af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 
+  defaultValue: 0
+  onValueLoaded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &132062038
 GameObject:
   m_ObjectHideFlags: 0
@@ -9585,7 +9605,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 124671432}
         m_TargetAssemblyTypeName: Audio, Assembly-CSharp
-        m_MethodName: VolumeMusic
+        m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

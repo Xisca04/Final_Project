@@ -6,9 +6,9 @@ public class UpDown : MonoBehaviour
 {
     // To elevate the plataforms
 
-    float speed = 0.4f;
-    float height = 5f;
-    float startY = 3f;
+    float speed = 0.1f;
+    float height = 2f;
+    float startY = 2f;
 
     void Update()
     {

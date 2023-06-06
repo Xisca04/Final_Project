@@ -7,8 +7,8 @@ public class DownUp : MonoBehaviour
     // To elevate the plataforms
 
     float speed = 0.4f;
-    float height = 5f;
-    float startY = 6f;
+    float height = 2f;
+    float startY = 5f;
 
     void Update()
     {
