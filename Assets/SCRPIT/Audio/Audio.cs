@@ -19,12 +19,14 @@ public class Audio : MonoBehaviour
     {
         _audioSource = cam.GetComponent<AudioSource>();
     }
+
     /*
     public void VolumeMusic(float value)
     {
         _audioSource.volume = value; 
     }
     */
+
     private void Awake()
     {
         if (PlayerPrefs.HasKey("Volume"))

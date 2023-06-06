@@ -6,7 +6,7 @@ public class PlayerPrefsAudioLoader : MonoBehaviour
 {
     // Save button of slider
 
-    [SerializeField] private string key;
+    public string key;
 
     public void SetFloat(float value)
     {
