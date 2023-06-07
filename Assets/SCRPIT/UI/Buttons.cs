@@ -26,6 +26,7 @@ public class Buttons : MonoBehaviour
     public void GoToScene(int sceneIDX)
     {
         SceneManager.LoadScene(sceneIDX);
+        Time.timeScale = 1.0f;
     }
 
     // Active instructions panel
