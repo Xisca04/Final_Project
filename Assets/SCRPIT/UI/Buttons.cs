@@ -21,7 +21,7 @@ public class Buttons : MonoBehaviour
         usernamePanel.SetActive(false);
     }
     
-    // Change the scene and saves the username
+    // Change the scene 
 
     public void GoToScene(int sceneIDX)
     {

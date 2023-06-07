@@ -21,32 +21,20 @@ public class UIManager1 : MonoBehaviour
             inputField.placeholder.GetComponent<TextMeshProUGUI>().text = existingUsername; 
         }
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SaveUsername();
-        }
-    }
 
     public void SaveUsername()
     {
         string inputText = inputField.text;
-       
 
         if (inputText == "")
         {
             DataPersistence.sharedInstance.username = inputField.placeholder.GetComponent<TextMeshProUGUI>().text;
-            Debug.Log($"Estoy guardando playHolder {inputField.placeholder.GetComponent<TextMeshProUGUI>().text}");
         }
         else
         {
             DataPersistence.sharedInstance.username = inputText;
-            Debug.Log($"Estoy guardando");
         }
-    }
-
-   
+    } 
 
    public void SaveUsernameWithPlayerPrefs()
    {

@@ -25,7 +25,6 @@ public class PostProcessing : MonoBehaviour
     public IEnumerator Desactive() // Descative the vignette
     {
         yield return new WaitForSeconds(0.1f);
-        //vignette.intensity.value = 0.5f;
         vignette.active = false;
     }
 

@@ -13,8 +13,7 @@ public class PresentationPanel : MonoBehaviour
     
     //Communication script
     [SerializeField] private PlayerController _playerController;
-    
-
+   
     private void Start()
     {
         _playerController = FindObjectOfType<PlayerController>();

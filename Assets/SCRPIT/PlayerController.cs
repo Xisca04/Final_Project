@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
 
     // Powerups
-    public bool hasPowerupLife;
+    [SerializeField] private bool hasPowerupLife;
     public int lives = 3;
     public float timer = 0;
 
@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
     private void Run()
     {
         moveSpeed = runSpeed;
-        _animator.SetFloat("Speed", 1f, 0.1f,Time.deltaTime); 
+        _animator.SetFloat("Speed", 1f, 0.1f,Time.deltaTime);
         TWOstaminaMaria.instance.UseStamina(40);
     }
     private void Jump()

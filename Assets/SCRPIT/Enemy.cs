@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
 
     // PATRULLA - Variables
-    [SerializeField] private Transform[] waypoints; // Las localizaciones donde hara un recorrido de patrulla
+    [SerializeField] private Transform[] waypoints;
     private int totalWaypoints;
     [SerializeField] private int nextPoint;
 
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
-    private void Update() // Se movera hacia el destino
+    private void Update() 
     {
         Vector3 pos = transform.position;
         playerInVisionRange = Physics.CheckSphere(pos, visionRange, playerLayer);
@@ -124,7 +124,6 @@ public class Enemy : MonoBehaviour
             
         }
        
-      
         _audioSource.PlayOneShot(enemyAttack);
 
         StartCoroutine(_postProcessing.Active());
@@ -153,7 +152,7 @@ public class Enemy : MonoBehaviour
             
             StartCoroutine(_postProcessing.Desactive());
             _audioSource.PlayOneShot(enemyDeath);
-            _agent.SetDestination(transform.position); //se queda en el sitio
+            _agent.SetDestination(transform.position);
             Destroy(gameObject, 3);
         }
     }
@@ -163,7 +162,6 @@ public class Enemy : MonoBehaviour
         if (otherCollider.gameObject.CompareTag("Player"))
         {
             _playerController.TakeDamage();
-            
         }
     }
 

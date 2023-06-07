@@ -37,7 +37,6 @@ public class GameOver : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         _playerController.dirtParticle.Stop();
-        // Time.timeScale = 0f;
         _playerController.timer = 0;
     }
 
