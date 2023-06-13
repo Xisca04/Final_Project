@@ -37,7 +37,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Attack_TS
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: Attack_type_TS
+    m_ConditionEvent: OLD
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2682598064136149963}
@@ -145,7 +145,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Attack_TS
     m_EventTreshold: 0
-  - m_ConditionMode: 3
+  - m_ConditionMode: 6
     m_ConditionEvent: Attack_type_TS
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
@@ -176,31 +176,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Attack_type_TS
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Speed_TS
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isWalking_TS
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isGameOver_TS
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: Attack_type_TS
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Turtle Shell Base Layer
@@ -340,7 +340,7 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Attack_TS
     m_EventTreshold: 0
-  - m_ConditionMode: 3
+  - m_ConditionMode: 6
     m_ConditionEvent: Attack_type_TS
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
@@ -496,7 +496,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Attack_TS
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: Attack_type_TS
+    m_ConditionEvent: OLD
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 806328529726318082}

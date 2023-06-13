@@ -14,7 +14,7 @@ public class Audio : MonoBehaviour
 
     private void Start()
     {
-        _audioSource = cam.GetComponent<AudioSource>();
+        _audioSource = Camera.main.GetComponent<AudioSource>();
     }
 
     

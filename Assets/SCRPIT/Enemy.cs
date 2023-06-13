@@ -120,8 +120,6 @@ public class Enemy : MonoBehaviour
         {
             _animator.SetInteger("Attack_type_TS", Random.Range(1, 3));
             _animator.SetTrigger("Attack_TS");
-            
-            
         }
        
         _audioSource.PlayOneShot(enemyAttack);

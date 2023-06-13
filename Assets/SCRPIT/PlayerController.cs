@@ -241,6 +241,7 @@ public class PlayerController : MonoBehaviour
     {
         Destroy(other.gameObject);
         _audioSource.PlayOneShot(collectables[0]);
+        timer += 10;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -259,8 +260,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag.Equals("Timer"))
         {
-            GetHourGlass(other);
-            timer += 10;
+            GetHourGlass(other); 
         }
     }
 
